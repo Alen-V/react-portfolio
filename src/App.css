@@ -11,24 +11,69 @@ html {
 html, body, #root, .App{
   height: 100%;
   width: 100%;
-  background-color: #181818;
+  background-color: #191923;
   overflow: hidden;
+  margin: auto;
+}
+
+body {
+  padding: 15px 235px;
 }
 
 #root {
- padding: 50px;
+ max-width: 1440px;
+ box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
+}
+
+.loading-animation {
+  margin: 15px;
+  position: absolute;
+  z-index: 100;
+  left: 0%;
+  top: 0%;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  background-color: #20202A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-container {
+  text-transform: capitalize;
+  color: #fff;
+  width: 200px;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.loading-bar {
+  height: 4px;
+  margin: 15px 0;
+  flex-direction: column;
+  height: 38px;
+  justify-content: space-between;
+}
+
+.loading-bar .MuiLinearProgress-colorPrimary {
+  background-color: #191923;
+}
+
+.loading-bar .MuiLinearProgress-barColorPrimary {
+  background-color: #FFC107;
+}
+
+.loading-bar .MuiTypography-colorTextSecondary {
+  color: #fff;
 }
 
 .App {
   position: relative;
-  border-radius: 15px;
-  background-color: #1D1D1D;
-  box-shadow: 0 0 5px rgb(255 255 255 / 35%);
-  padding: 5px;
+  background-color: #1E1E28;
   display: flex;
   overflow: hidden;
   color: #fff;
-  border-top: 1px solid rgba(255, 255, 255, .5);
   overflow: hidden;
 }
 

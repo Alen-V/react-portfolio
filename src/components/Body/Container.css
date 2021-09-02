@@ -25,7 +25,12 @@ input[type=number] {
 }
 
 .main-page {
-    width: calc(100% - 90px);
+    padding-left: 290px;
+    padding-right: 80px;
+    transition: .55s ease-in-out;
+}
+.main-page.open {
+    transform: translateX(-150px);
 }
 
 .empty-container {
@@ -81,7 +86,7 @@ input[type=number] {
 
 #home .info-container span a {
     font-size: 1.4em;
-    color: #ad2400;
+    color: #FFC107;
     transition: all cubic-bezier(0.77,0.2,0.05,1.0) 0.4s;
     cursor: pointer;
     width: 100%;

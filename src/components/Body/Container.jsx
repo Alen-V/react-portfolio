@@ -1,15 +1,12 @@
 import React from 'react'
 import './Container.css'
 import { projects } from '../../projects/projects'
-import portfolioImg from '../../assets/images/portfolio-image.jpg'
 
-const Container = ({width, activePage}) => {
+const Container = ({width, activePage, rightSideBarOpen}) => {
     const homePage = ( 
             <>
                 <div className="info-container">
-                    {width > 480 ? null : <div className={'image-container'}>
-                        <img src={portfolioImg} alt="portfolio" />
-                        </div>}
+                    
                     <span>
                         <a href="#contact">Alen Vatic</a>
                         <span>full stack developer</span>
@@ -90,7 +87,7 @@ const Container = ({width, activePage}) => {
         })
     )
     const containerMain = (
-        <div className="main-page">
+        <div className={`main-page ${rightSideBarOpen ? 'open' : 'closed'}`}>
             {printPages(pageId)}
         </div>
     )
