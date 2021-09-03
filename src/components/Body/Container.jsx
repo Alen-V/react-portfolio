@@ -3,47 +3,101 @@ import './Container.css'
 import { projects } from '../../projects/projects'
 
 const Container = ({width, activePage, rightSideBarOpen}) => {
-    const homePage = ( 
-            <>
-                <div className="info-container">
-                    
-                    <span>
-                        <a href="#contact">Alen Vatic</a>
-                        <span>full stack developer</span>
-                    </span>
+    const shortDescription = ( 
+        <div className="info-container">
+            <span>
+                <a href="#contact">Alen Vatic</a>
+                <span>full stack developer</span>
+            </span>
+        </div>
+    )
+    const workExperience = (
+        <div className={'work-experience border-bottom'}>
+            <div className={'description'}><span>work experience</span></div>
+            <div className={'description-container'}>
+                <div className={'description-item'}>
+                    Freelance
+                    <div className={'timeline'}>
+                        <span>From: 01/05/2019 - current</span>
+                    </div>
+                    {/* <div>
+                        <span>Front End oriented</span>
+                    </div> */}
                 </div>
-            </>
-    )
-    const aboutInfo = (
-        <div className="about-info">
-            <h2>Skills & Experience</h2>
-                <p>Dedicated and efficient full stack developer with 2 years experience.</p>
-                <p>Certified in both F/E and B/E technologies, { width < 480 ? <br/> : null }F/E Heavy oriented.</p>
-                <p>Building applications in both Angular2+ and React.</p>
-                <p>Been developing and maintaining betting websites for over a year.</p>
+                <div className={'description-item'}>
+                    Keep IT Simple
+                    <div className={'timeline'}>
+                        <span>From: 01/08/2020 - current</span>
+                    </div>
+                    {/* <div>
+                        <span>Front End oriented</span>
+                    </div> */}
+                </div>
+            </div>
         </div>
     )
-    const skills = (
-        <div className="skills-container">
-            <div><i className="fab fa-js-square"></i><p>JS / TS</p></div>
-            <div><i className="fab fa-angular"></i> <p>Angular 2+</p></div>
-            <div><i className="fab fa-react"></i><p>React</p></div>
-            <div><i className="fab fa-git-alt"></i> <p>Git</p></div>
-            <div><i className="fab fa-node"></i><p>node</p></div>
-            <div><i className="fab fa-html5"></i> <p>Html5</p></div>
-            <div><i className="fab fa-css3-alt"></i> <p>CSS</p></div>
-            <div><i className="fas fa-database"></i><p>API</p></div>
-            <div><i className="fab fa-sass"></i> <p>SASS/SCSS</p></div>
-            <div><i className="fab fa-bootstrap"></i> <p>Bootstrap</p></div>
-            <div><i className="fab fa-figma"></i><p>Figma</p></div>
+    const educationContainer = (
+        <div className={'education-container border-bottom'}>
+            <div className={'description'}>
+                <span>Education</span>
+            </div>
+            <div className={'description-container'}>
+                <div className="description-item">
+                    Seavus Private Academy
+                    <div className="timeline">
+                        <span>From: 15/10/2019 - 15/10/2020</span>
+                    </div>
+                    <div>
+                        <a href="https://www.sedc.mk/" target={'_blank'} rel={'noreferrer'}>sedc.mk</a>
+                    </div>
+                </div>
+            </div>
         </div>
     )
-    const skillsPage = (
-        <>
-            <div className="empty-container"></div>
-            {aboutInfo}
-            {skills}
-        </>
+    const refferences = (
+        <div className={'refferences-container'}>
+            <div className={'description'}>
+                <span>
+                    Refferences
+                </span>
+            </div>
+            <div className={'description-container'}>
+                <div className="description-item">
+                    Dragan Gelevski from WSAudiology
+                    <div className="timeline">
+                        <div>
+                            <span>
+                                Email:
+                                <a href="mailto: gdragan6@gmail.com"> gdragan6@gmail.com</a>
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                LinkedIn:
+                                <a href="https://www.linkedin.com/in/dragan-gelevski" target="_blank" rel="noreferrer"> linkedin.com/in/dragan-gelevski</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="description-item">
+                Shqipdon Selmani from Slice 
+                    <div className="timeline">
+                        <div>
+                            <span>
+                                Email:
+                                <a href="mailto: selmani.sq@gmail.com"> selmani.sq@gmail.com</a>
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                LinkedIn:
+                                <a href="https://www.linkedin.com/in/shqipdonselmani" target="_blank" rel="noreferrer"> linkedin.com/in/shqipdonselmani</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
     const openProject = (url) => {
         window.open(url, '_blank').focus()
@@ -62,33 +116,29 @@ const Container = ({width, activePage, rightSideBarOpen}) => {
                 {printProjects}
             </div>
     )
-    const contactPage = (
-        <>
-            <div className="empty-container"></div>
-            <div className="page-container">
-                    <span>Have a project idea ?</span>
-                    <hr/>
-                    <span>Let's talk about it</span>
-            </div>
-            <div className="social-media-container">
-                <a href="https://www.facebook.com/Initial47" target="_blank" rel={'noreferrer'}><i className="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/alenvatic47/" target="_blank" rel={'noreferrer'}><i className="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/alen-vatic-a0b61815b/" target="_blank" rel={'noreferrer'}><i className="fab fa-linkedin"></i></a>
-                <a href="mailto: alenvatic7@gmail.com"><i className="fas fa-envelope"></i></a>
-            </div>
-        </>
-    )
-    let pageId = [['home', homePage], ['skills', skillsPage], ['project', projectPage], ['contact', contactPage]]
-    const printPages = (pages) => (
-        pages.map( (page, index) => {
-             return <div id={page[0]} className={`pages ${width > 480 ? activePage === index ? 'active-page' : null : width < 480 ? 'mobile-page' : null}`}>
-                {page[1]}
-            </div>
-        })
-    )
+
     const containerMain = (
         <div className={`main-page ${rightSideBarOpen ? 'open' : 'closed'}`}>
-            {printPages(pageId)}
+            <div className={'page-container'}>
+                <div id="home" className={`page ${activePage === 0 ? 'active' : 'inactive'}`}>
+                    {shortDescription}
+                    {workExperience}
+                    {educationContainer}
+                    {refferences}
+                </div>
+                <div id="skills" className={`page ${activePage === 1 ? 'active' : 'inactive'}`}>
+                    <span>skills</span>
+                </div>
+                <div id="projects" className={`page ${activePage === 2 ? 'active' : 'inactive'}`}>
+                    <span>skills</span>
+                </div>
+                <div id="about" className={`page ${activePage === 3 ? 'active' : 'inactive'}`}>
+                    <span>skills</span>
+                </div>
+                <div id="contact" className={`page ${activePage === 4 ? 'active' : 'inactive'}`}>
+                    <span>skills</span>
+                </div>
+            </div>
         </div>
     )
     return containerMain

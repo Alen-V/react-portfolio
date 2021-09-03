@@ -4,16 +4,6 @@ import SidebarLeft from './components/AboutInfo/SidebarLeft.jsx';
 import SidebarRight from './components/AboutInfo/SidebarRight.jsx';
 import Container from './components/Body/Container.jsx';
 import LinearWithValueLabel from './components/loader/LoaderBar.jsx'
-import $ from 'jquery'; 
-
-$(document).ready(function() {
-  $('.skills-container div').mouseenter(function() {
-    $(this).prevAll().addClass('move-left')
-  })
-  $('.skills-container div').mouseleave(function() {
-      $(this).prevAll().removeClass('move-left')
-  })
-})
 
 class App extends Component {
   constructor(props) {
@@ -23,12 +13,14 @@ class App extends Component {
       name: 'alen vatic',
       percentage: 0,
       width: window.innerWidth,
+      height: window.innerHeight,
       activePage: 0,
       rightSideBarOpen: false
     }
-    
   }
+  
   changePage = (page) => {
+    console.log(page)
     this.setState({
       activePage: page
     })
@@ -42,7 +34,15 @@ class App extends Component {
       loading: false
     })
   }
-  
+  updateDimensions = () => {
+    this.setState({ width: window.innerWidth, height: window.innerHeight, loading: true });
+  };
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
+  }
   render() {
     const { loading, width, activePage, rightSideBarOpen, name } = this.state
     return (
@@ -54,7 +54,7 @@ class App extends Component {
       </div>
       : 
       <div className="App">
-        <SidebarLeft width={width} activePage={activePage} changePage={this.changePage}/>
+        <SidebarLeft width={width} activePage={activePage} />
         <Container width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} />
         <SidebarRight width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} changePage={this.changePage} openRightSideBar={this.openRightSideBar}/>
       </div>

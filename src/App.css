@@ -92,183 +92,19 @@ a {
   font-weight: 600;
   position: relative;
   z-index: 1;
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  transition: .4s ease-in-out;
+  color: #fafafc;
   user-select: none;
 }
 
 @media only screen and (max-width: 992px) {
-  #root {
-    padding: 0;
-  }
-  .App {
-    border-radius: 10px;
-  }
-  .App .pages {
-    padding: 0;
-  }
-  .App #skills > .about-info {
-    width: 100%;
-    font-size: 0.85em;
-    padding-bottom: 15px;
-  }
-  .App #skills .empty-container {
-    display: none;
-  }
-  .App #skills > .about-info p {
-    margin: 5px 0;
-  }
-  .App #skills > .about-info h2 {
-    margin-bottom: 10px;
-  }
-  .App .header-container .name-container {
-    width: 90px;
-    position: unset;
-  }
-  .App .empty-container {
-    height: 50px;
-  }
-  .App .main-page {
-    width: calc(100% - 90px);
-  }
-  .App .pages {
-    width: 100%;
-  }
-  .App #skills {
-    justify-content: center;
-  }
-  .App #skills > .skills-container {
-    overflow: auto;
-    font-size: 1.3em;
-    height: 115px;
-  }
-  .App #project .project-container {
-    flex-wrap: nowrap;
-    height: 100%;
-    align-items: center;
-    overflow: auto;
-  }
-  .App #project .project-container .project-item {
-    min-width: 275px;
-  }
-  .App #contact .empty-container {
-    height: 25px;
-  }
-  .App #contact .page-container span {
-    font-size: 2em;
-  }
-  .App #contact {
-    text-align: center;
-    align-items: center;
-  }
-  .App #contact .social-media-container {
-    width: 100%;
-  }
-  .nav-item.mobile-page {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  body {
+    padding: 0%
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .App {
-    flex-direction: column;
-  }
-  .nav-item.mobile-page {
-    border-bottom: 0;
-  }
   
-  .App .header-container .name-container {
-    display: none;
-  }
-  .App .main-page {
-    width: 100%;
-    height: calc(100% - 70px);
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  .App .header-container {
-    height: 70px;
-    width: 100%;
-    flex-direction: row;
-    text-align: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
-    border-radius: 0;
-  }
-  .App .header-container .side-nav-info {
-    flex-direction: row;
-    width: calc(100% - 90px);
-    padding-left: 5px;
-  }
-  .nav-closing-tag {
-    width: 70px;
-    position: fixed;
-    bottom: 0%;
-    right: 0%;
-  }
-  .App .pages {
-    padding: 0px;
-    flex-direction: column;
-  }
-  .App #home {
-    font-size: 1.5em;
-  }
-  .App #home .info-container span {
-    text-align: center;
-  }
-  #home .info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-  }
-  .App #skills {
-    justify-content: flex-start;
-  }
-  .App #skills .empty-container {
-    display: none;
-  }
-  .App #skills > .about-info {
-    width: 100%;
-    margin-bottom: 25px;
-    font-size: 1em;
-  }
-  .App #skills .skills-container div {
-    pointer-events: none;
-  }
-  .App #skills > .skills-container {
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: unset;
-    font-size: 1.5em;
-  }
-  .App #project {
-    height: unset;
-  }
-  .App #project .project-container {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  #project .project-item .project-description  {  
-    text-align: center;
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, .8);
-    text-transform: capitalize;
-  }
-  .App #project .project-item .project-name {
-    display: none;
-  }
-  .App #contact {
-    text-align: left;
-    align-items: center;
-  }
-  .App #contact .page-container {
-    width: 100%;
-    max-width: unset;
-    min-width: unset;
-  }
 }
 
 /* TODO: need to update image */

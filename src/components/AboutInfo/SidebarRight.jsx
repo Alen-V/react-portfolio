@@ -1,5 +1,4 @@
 import { React, useState } from 'react'
-import { slide as Menu } from 'react-burger-menu'
 import './Header.css'
 
 const SidebarRight = ({ width, activePage, changePage, rightSideBarOpen, openRightSideBar}) => {
@@ -17,14 +16,17 @@ const SidebarRight = ({ width, activePage, changePage, rightSideBarOpen, openRig
         </div>
     )
     const changeActivePage = (pageIndex) => {
-        changePage(pageIndex)
+        openRightSideBar()
+        document.querySelector('.main-page').addEventListener('transitionend', () => {
+            changePage(pageIndex)
+        })
     }
     const activeItem = navItems.map(((item, index) => {
         let items = activePage === index ? <span>{item}</span> : null
         return items
     }))
     const navitem = navItems.map(((item, index) => {
-        let items = <li key={index}><span>{item}</span></li>
+        let items = <li key={index} onClick={() => changeActivePage(index)}><p>{item}</p></li>
         return items
     }))
     const navInfo = (
