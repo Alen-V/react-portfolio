@@ -20,7 +20,7 @@ export const projects = [
     {
         "id": 4,
         "name": "calculator",
-        "url": "https://alen-v.github.io/calculator-react",
+        "url": "https://alen-v.github.io/react-calculator",
         "image": "calculator-react"
     },
     {

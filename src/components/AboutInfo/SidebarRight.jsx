@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import './Header.css'
 
 const SidebarRight = ({ width, activePage, changePage, rightSideBarOpen, openRightSideBar}) => {
-    let navItems = ['home', 'skills', 'projects', 'about', 'contact']
+    let navItems = ['home', 'projects', 'about', 'contact']
     const burgerButton = (
         <div className={'burger-container'} onClick={() => openRightSideBar()}>
             <div id="burgerButton">
@@ -22,7 +22,9 @@ const SidebarRight = ({ width, activePage, changePage, rightSideBarOpen, openRig
         })
     }
     const activeItem = navItems.map(((item, index) => {
-        let items = activePage === index ? <span>{item}</span> : null
+        let items = <div className={"active-item " + item}>
+                        {activePage === index ? <span>{item}</span> : null}
+                    </div>
         return items
     }))
     const navitem = navItems.map(((item, index) => {
@@ -45,9 +47,7 @@ const SidebarRight = ({ width, activePage, changePage, rightSideBarOpen, openRig
         <div className={`right-sidebar-container ${rightSideBarOpen ? 'open' : 'closed'}`}>
             <div className={'sidebar-header'}>{burgerButton}</div>
             <div className={'sibebar-menu'}>
-                <div className="active-item">
-                    {activeItem}
-                </div>
+                {activeItem}
                 <ul className={'items-container'}>
                     {navitem}
                 </ul>

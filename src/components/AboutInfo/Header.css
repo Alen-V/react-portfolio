@@ -285,13 +285,23 @@
 .right-sidebar-container .active-item {
   position: absolute;
   top: 100px;
-  left: 16px;
+  left: 17px;
   transform: rotateZ(90deg);
   opacity: 0;
   transition: .4s ease-in-out;
   text-transform: uppercase;
   font-weight: 500;
   color: #8c8c8e;
+}
+
+.right-sidebar-container .active-item.projects {
+  top: 113px;
+  left: 4px;
+}
+
+.right-sidebar-container .active-item.contact {
+  top: 113px;
+  left: 5px;
 }
 
 .right-sidebar-container.closed .active-item {
