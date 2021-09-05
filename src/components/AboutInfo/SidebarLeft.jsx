@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Header.css'
-import cv from '../../assets/alen-vatic-cv.pdf'
+import cv from '../../assets/alen_vatic.pdf'
 
-const SidebarLeft = ({ width, activePage, changePage}) => {
+const SidebarLeft = ({ width, activePage, changePage, openLeftSideBar, leftSideBarOpen}) => {
     const getAge = (dateString) => {
         let today = new Date();
         let birthDate = new Date(dateString);
@@ -19,6 +19,9 @@ const SidebarLeft = ({ width, activePage, changePage}) => {
     
     const profileInfoHeader = (
         <div className={'profile-info-header'}>
+            <div className="open-sidebar" onClick={() => openLeftSideBar()}>
+                {<i class="fas fa-ellipsis-v"></i>}
+            </div>
             <div className={'initials-container'}><span>AV</span></div>
             <div className={'name-container'}>
                 <span>Alen Vatic</span>
@@ -58,7 +61,7 @@ const SidebarLeft = ({ width, activePage, changePage}) => {
     }))
     
     const headerMain = (
-        <div className="left-sidebar-container">
+        <div className={`left-sidebar-container ${leftSideBarOpen ? 'open' : 'closed'}`}>
             <div className={'profile-information'}>
                 {profileInfoHeader}
                 <div className={'profile-info-body'}>

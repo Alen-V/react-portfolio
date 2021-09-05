@@ -15,15 +15,20 @@ class App extends Component {
       width: window.innerWidth,
       height: window.innerHeight,
       activePage: 0,
-      rightSideBarOpen: false
+      rightSideBarOpen: window.innerWidth < 992 ? false : true,
+      leftSideBarOpen: window.innerWidth < 992 ? false : true,
+      view: window.innerWidth < 992 ? 'mobile' : 'desktop'
     }
   }
   
   changePage = (page) => {
-    console.log(page)
     this.setState({
       activePage: page
     })
+  }
+  openLeftSideBar = () => {
+    const { leftSideBarOpen } = this.state
+    this.setState({leftSideBarOpen: !leftSideBarOpen})
   }
   openRightSideBar = () => {
     const { rightSideBarOpen } = this.state
@@ -44,7 +49,7 @@ class App extends Component {
     window.removeEventListener('resize', this.updateDimensions);
   }
   render() {
-    const { loading, width, activePage, rightSideBarOpen, name } = this.state
+    const { loading, width, activePage, rightSideBarOpen, name, view, leftSideBarOpen } = this.state
     return (
       loading ? <div className={'loading-animation'}>
         <div className={'loader-container'}>
@@ -53,10 +58,10 @@ class App extends Component {
         </div>
       </div>
       : 
-      <div className="App">
-        <SidebarLeft width={width} activePage={activePage} />
+      <div className={`App`} id={view}>
+        <SidebarLeft width={width} activePage={activePage} leftSideBarOpen={leftSideBarOpen} openLeftSideBar={this.openLeftSideBar} />
         <Container width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} />
-        <SidebarRight width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} changePage={this.changePage} openRightSideBar={this.openRightSideBar}/>
+        <SidebarRight width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} changePage={this.changePage} openRightSideBar={this.openRightSideBar} />
       </div>
   );
  }

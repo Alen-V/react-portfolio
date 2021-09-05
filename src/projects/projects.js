@@ -12,10 +12,10 @@ export const projects = [
         "image": "take_off"
     },
     {
-        "id": 3,
-        "name": "weather app react",
-        "url": "https://alen-v.github.io/weather-app-react/",
-        "image": "weather-app-react"
+        "id": 5,
+        "name": "betting-site",
+        "url": "https://www.vierklee-wetten.com/",
+        "image": "betting-site"
     },
     {
         "id": 4,
@@ -24,10 +24,10 @@ export const projects = [
         "image": "calculator-react"
     },
     {
-        "id": 5,
-        "name": "betting-site",
-        "url": "https://www.vierklee-wetten.com/",
-        "image": "betting-site"
+        "id": 3,
+        "name": "weather app react",
+        "url": "https://alen-v.github.io/weather-app-react/",
+        "image": "weather-app-react"
     },
     {
         "id": 6,

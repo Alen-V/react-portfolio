@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Container.css'
 import { projects } from '../../projects/projects'
 
-const Container = ({width, activePage, rightSideBarOpen}) => {
+const Container = ({width, activePage, rightSideBarOpen, view}) => {
     const shortDescription = ( 
         <div className="info-container">
             <span>
@@ -148,7 +148,139 @@ const Container = ({width, activePage, rightSideBarOpen}) => {
             </div>
         </div>
     )
+    const aboutCards = (
+        <div className={'cards-container'}>
+            <div className={'about-item'}>
+            Agile, highly self-motivated, quick self learner with strong sense of product ownership and creative problem
+        solving.
+            </div>
+            <div className={'about-item'}>
+            Deeply passionate about software coding/development and building great mobile/web applications.
+            </div>                                          
+            <div className={'about-item'}>
+            Dedicated and efficient full stack developer with 2 years experience. 
+            </div>
+            <div className={'about-item'}>
+            Certified in both F/E and B/E
+        technologies, F/E Heavy oriented. Building applications in both Angular2+ and React.
+            </div>
+        </div>
+    )
+    const aboutPage = (
+        <div className={'about-container border-bottom'}>
+            <div className='description'>
+                <span>
+                    About
+                </span>
+            </div>
+            <div className={'description-container'}>
+                <div className="about-pitch">
+                    <span>
+                        Hello my name is Alen
+                    </span>
+                    <div className="timeline">
+                        I am a Full Stack Developer located in Macedonia.
+                    </div>
+                    <div className="timeline">
+                        Currently focusing mostly on Front End Development ( JavaScript )
+                    </div>
+                    <div className="timeline">
+                        Been working as a JavaScript Developer for over a year,
+                    </div>
+                    <div className="timeline">
+                        developing and maintaing websites in React and Angular 2+ 
+                    </div>
+                </div>
+                {aboutCards}
+            </div>
+        </div>
+    )
+    const contactInfo = (
+        <div className={'contact-info-container'}>
+            <div className="description">
+                <span>
+                    Contact information
+                </span>
+            </div>
+            <div className="description-container">
+                <div className="contact-info-item">
+                    <div>
+                        <span>Country:</span>
+                        <span>Macedonia</span>
+                    </div>
+                    <div>
+                        <span>City:</span>
+                        <span>Skopje</span>
+                    </div>
+                </div>
+                <div className="contact-info-item">
+                    <div>
+                        <span>Email:</span>
+                        <span>
+                            <a href="mailto: alenvatic7@gmail.com">alenvatic7@gmail.com</a>
+                        </span>
+                    </div>
+                    <div>
+                        <span>Whatsapp:</span>
+                        <span>+389 78 314 238</span>
+                    </div>
+                </div>
+                <div className="contact-info-item">
+                    <div>
+                        <span>Country:</span>
+                        <span>Macedonia</span>
+                    </div>
+                    <div>
+                        <span>City:</span>
+                        <span>Skopje</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+    const focusEl = (el) => {
+        setFocus(el)
+    }
+    const [focus, setFocus] = useState('')
 
+    const contactForm = (
+        <div className="contact-form">
+            <div className="description">
+                <span>
+                    Have an idea ? Let's talk!
+                </span>
+            </div>
+            <div className="contact-form-container">
+                <div className={`name-input ${focus}`}>
+                    <div className="icon-container">
+                        {<i class="fas fa-user"></i>}
+                    </div>
+                        <input onFocus={() => {focusEl('name')}} className={'input'} type="text" placeholder={'Name'} />
+                </div>
+                <div className={`email-input ${focus}`}>
+                    <div className="icon-container">
+                        {<i class="fas fa-at"></i>}
+                    </div>
+                        <input onFocus={() => {focusEl('email')}} className={'input'} type="text" placeholder={'Email'} />
+                </div>
+                <div className={`message-input ${focus}`}>
+                    <div className="icon-container">
+                        {<i class="fas fa-envelope-open-text"></i>}
+                    </div>
+                        <textarea onFocus={() => {focusEl('textarea')}} className={'input'} type="text" placeholder={'Message'} />
+                </div>
+                <div className="send-message">
+                    <span>send message</span>
+                </div>
+            </div>
+        </div>
+    )
+    const contactPage = (
+        <div className='contact-container'>
+            {contactInfo}
+            {contactForm}
+        </div>
+    )
     const openProject = (url) => {
         window.open(url, '_blank').focus()
     }
@@ -156,6 +288,9 @@ const Container = ({width, activePage, rightSideBarOpen}) => {
         <div className={`main-page ${rightSideBarOpen ? 'open' : 'closed'}`}>
             <div className={'page-container'}>
                 <div id="home" className={`page ${activePage === 0 ? 'active' : 'inactive'}`}>
+                    <div className="mobile-header">
+                    
+                    </div>
                     {shortDescription}
                     {workExperience}
                     {educationContainer}
@@ -165,11 +300,11 @@ const Container = ({width, activePage, rightSideBarOpen}) => {
                     {projectPage}
                     {projectContact}
                 </div>
-                <div id="about" className={`page ${activePage === 3 ? 'active' : 'inactive'}`}>
-                    <span>aboutsss</span>
+                <div id="about" className={`page ${activePage === 2 ? 'active' : 'inactive'}`}>
+                    {aboutPage}
                 </div>
-                <div id="contact" className={`page ${activePage === 4 ? 'active' : 'inactive'}`}>
-                    <span>skills</span>
+                <div id="contact" className={`page ${activePage === 3 ? 'active' : 'inactive'}`}>
+                    {contactPage}
                 </div>
             </div>
         </div>
