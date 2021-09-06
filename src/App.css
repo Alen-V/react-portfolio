@@ -20,6 +20,8 @@ body {
   padding: 15px 235px;
 }
 
+
+
 #root {
  max-width: 1440px;
  box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
@@ -97,14 +99,129 @@ a {
   user-select: none;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1550px) { 
   body {
-    padding: 0%
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 1440px) { 
+  .App .projects-container .project-item {
+    width: calc((100% / 3) - 20px);
+    min-width: unset;
+    height: 210px;
+  }
+}
+
+@media only screen and (max-width: 1200px) { 
+  .App .projects-container .project-item {
+    height: 165px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    padding: 0%;
+  }
+  .contact-info-container .description-container {
+    flex-direction: column;
+  }
+  .contact-info-container .description-container .contact-info-item {
+    width: 100% !important;
+    margin-top: 15px;
+  }
+
+  .App .projects-container .projects .project-item {
+    width: calc(50% - 15px);
+    height: 210px;
+  }
+  .App .project-contact-info .project-idea {
+    font-size: 1.5em;
+  }
+  .App .cards-container .about-item {
+    width: calc(50% - 7.5px);
+    min-width: unset;
+  }
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .App .cards-container .about-item {
+    max-width: unset;
+    min-width: 320px;
+  }
+  .right-sidebar-container.closed .burger-container {
+    left: -80px;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .App .main-page .page-container .info-container {
+    font-size: 2em;
+    height: unset;
+    padding: 30px 30px 40px;
+  }
+  .App .about-container .about-pitch , .App .cards-container .about-item {
+    max-width: 320px;
+  }
+  .App .projects-container .projects {
+    justify-content: space-between;
+  }
+  .App .projects-container .project-item {
+    min-width: unset;
+    height: 175px!important;
   }
 }
 
 @media only screen and (max-width: 480px) {
+  .App .contact-info-container .description-container .contact-info-item {
+    min-width: unset;
+    width: 100%;
+  }
+  .App .cards-container .about-item {
+    min-width: unset;
+    width: 100%;
+  }
+  .App .projects-container .projects {
+    justify-content: center;
+  }
+  .App .projects-container .project-item {
+    height: 240px;
+    width: 100%!important;
+    max-width: 320px;
+  }
+  .page {
+    overflow-x: hidden!important;
+  }
+  #mobile .page {
+    padding: 15px !important;
+    padding-top: 65px!important;
+  }
+  #mobile #home {
+    padding-top: 100px!important;
+  }
+  .App .contact-form-container {
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .App .contact-info-container .description-container .contact-info-item {
+    min-width: 250px;
+    font-size: 0.8em;
+    padding: 15px;
+  }
   
+  .App .about-container .about-pitch, .App .cards-container .about-item {
+    min-width: 250px;
+  }
+  .App .projects-container .projects {
+    justify-content: center;
+  }
+  .App .projects-container .project-item {
+    min-width: 250px;
+    height: 240px;
+  }
 }
 
 /* TODO: need to update image */

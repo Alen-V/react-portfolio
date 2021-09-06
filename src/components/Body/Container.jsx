@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Container.css'
 import { projects } from '../../projects/projects'
 
-const Container = ({width, activePage, rightSideBarOpen, view}) => {
+const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit, changePage}) => {
     const shortDescription = ( 
         <div className="info-container">
             <span>
@@ -18,7 +18,7 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
                 <div className={'description-item'}>
                     Freelance
                     <div className={'timeline'}>
-                        <span>From: 01/05/2019 - current</span>
+                        <span>From: 05/2019 - current</span>
                     </div>
                     {/* <div>
                         <span>Front End oriented</span>
@@ -27,7 +27,7 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
                 <div className={'description-item'}>
                     Keep IT Simple
                     <div className={'timeline'}>
-                        <span>From: 01/08/2020 - current</span>
+                        <span>From: 08/2020 - current</span>
                     </div>
                     {/* <div>
                         <span>Front End oriented</span>
@@ -45,7 +45,7 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
                 <div className="description-item">
                     Seavus Education and Development Center
                     <div className="timeline">
-                        <span>From: 15/10/2019 - 15/10/2020</span>
+                        <span>From: 10/2019 - 10/2020</span>
                     </div>
                     <div>
                         <div className="timeline">Coursework - Html, CSS, JavaScript, C#, MySQL, Angular 2+</div>
@@ -55,7 +55,7 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
                 <div className="description-item">
                     Web development courses
                     <div className="timeline">
-                        <span>From: 10/07/2017 - 10/08/2018</span>
+                        <span>From: 07/2017 - 08/2018</span>
                     </div>
                     <div>
                         <span>Coursework - Html, CSS, JavaScript, Git, ReactJS</span>
@@ -116,7 +116,7 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
             </div>
             <div className="projects">
                 {projects.map( project => (
-                    <div className={"project-item " + project.image}>
+                    <div key={project.id} className={"project-item " + project.image}>
                         <div className="project-animate">
                             <span className={'project-description'}>
                                 <div className={'project-name'}>
@@ -143,7 +143,7 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
                     <span>Let's work together</span>
                 </div>
             </div>
-            <div className="contact-me">
+            <div className="contact-me" onClick={() => {changePage(3)}}>
                 <span>contact me</span>
             </div>
         </div>
@@ -167,7 +167,7 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
         </div>
     )
     const aboutPage = (
-        <div className={'about-container border-bottom'}>
+        <div className={'about-container'}>
             <div className='description'>
                 <span>
                     About
@@ -221,18 +221,8 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
                         </span>
                     </div>
                     <div>
-                        <span>Whatsapp:</span>
+                        <span>Mobile:</span>
                         <span>+389 78 314 238</span>
-                    </div>
-                </div>
-                <div className="contact-info-item">
-                    <div>
-                        <span>Country:</span>
-                        <span>Macedonia</span>
-                    </div>
-                    <div>
-                        <span>City:</span>
-                        <span>Skopje</span>
                     </div>
                 </div>
             </div>
@@ -242,7 +232,10 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
         setFocus(el)
     }
     const [focus, setFocus] = useState('')
-
+    const [fname, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+    
     const contactForm = (
         <div className="contact-form">
             <div className="description">
@@ -253,23 +246,23 @@ const Container = ({width, activePage, rightSideBarOpen, view}) => {
             <div className="contact-form-container">
                 <div className={`name-input ${focus}`}>
                     <div className="icon-container">
-                        {<i class="fas fa-user"></i>}
+                        {<i className="fas fa-user"></i>}
                     </div>
-                        <input onFocus={() => {focusEl('name')}} className={'input'} type="text" placeholder={'Name'} />
+                        <input onFocus={() => {focusEl('name')}} onChange={(e) => {setName(e.target.value)}} className={'input'} type="text" placeholder={'Name'} />
                 </div>
                 <div className={`email-input ${focus}`}>
                     <div className="icon-container">
-                        {<i class="fas fa-at"></i>}
+                        {<i className="fas fa-at"></i>}
                     </div>
-                        <input onFocus={() => {focusEl('email')}} className={'input'} type="text" placeholder={'Email'} />
+                        <input onFocus={() => {focusEl('email')}} onChange={(e) => {setEmail(e.target.value)}} className={'input'} type="text" placeholder={'Email'} />
                 </div>
                 <div className={`message-input ${focus}`}>
                     <div className="icon-container">
-                        {<i class="fas fa-envelope-open-text"></i>}
+                        {<i className="fas fa-envelope-open-text"></i>}
                     </div>
-                        <textarea onFocus={() => {focusEl('textarea')}} className={'input'} type="text" placeholder={'Message'} />
+                        <textarea onFocus={() => {focusEl('textarea')}} onChange={(e) => {setMessage(e.target.value)}} className={'input'} type="text" placeholder={'Message'} />
                 </div>
-                <div className="send-message">
+                <div className="send-message" onClick={() => handleFormSubmit({fname, email, message})} >
                     <span>send message</span>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './Header.css'
 import cv from '../../assets/alen_vatic.pdf'
 
@@ -20,7 +20,7 @@ const SidebarLeft = ({ width, activePage, changePage, openLeftSideBar, leftSideB
     const profileInfoHeader = (
         <div className={'profile-info-header'}>
             <div className="open-sidebar" onClick={() => openLeftSideBar()}>
-                {<i class="fas fa-ellipsis-v"></i>}
+                {<i className="fas fa-ellipsis-v"></i>}
             </div>
             <div className={'initials-container'}><span>AV</span></div>
             <div className={'name-container'}>

@@ -22,27 +22,15 @@ const SidebarRight = ({ width, activePage, changePage, rightSideBarOpen, openRig
         })
     }
     const activeItem = navItems.map(((item, index) => {
-        let items = <div className={"active-item " + item}>
+        let items = <div key={item+index} className={"active-item " + item}>
                         {activePage === index ? <span>{item}</span> : null}
                     </div>
         return items
     }))
     const navitem = navItems.map(((item, index) => {
-        let items = <li key={index} onClick={() => changeActivePage(index)}><p>{item}</p></li>
+        let items = <li key={item+index} onClick={() => changeActivePage(index)}><p>{item}</p></li>
         return items
     }))
-    const navInfo = (
-        <div className="side-nav-info">
-            {navitem}
-        </div>
-    )
-    const logo = (
-        <div className="nav-closing-tag">
-            <i className="fas fa-chevron-left"></i>
-            <i className="fas fa-slash"></i>
-            <i className="fas fa-chevron-right"></i>
-        </div>
-    )
     const headerMain = (
         <div className={`right-sidebar-container ${rightSideBarOpen ? 'open' : 'closed'}`}>
             <div className={'sidebar-header'}>{burgerButton}</div>

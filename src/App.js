@@ -4,6 +4,9 @@ import SidebarLeft from './components/AboutInfo/SidebarLeft.jsx';
 import SidebarRight from './components/AboutInfo/SidebarRight.jsx';
 import Container from './components/Body/Container.jsx';
 import LinearWithValueLabel from './components/loader/LoaderBar.jsx'
+import axios from 'axios';
+
+const API_PATH = 'https://alenvatic.com/api/index.php';
 
 class App extends Component {
   constructor(props) {
@@ -15,24 +18,55 @@ class App extends Component {
       width: window.innerWidth,
       height: window.innerHeight,
       activePage: 0,
-      rightSideBarOpen: window.innerWidth < 992 ? false : true,
-      leftSideBarOpen: window.innerWidth < 992 ? false : true,
-      view: window.innerWidth < 992 ? 'mobile' : 'desktop'
+      rightSideBarOpen: false,
+      leftSideBarOpen: window.innerWidth <= 768 ? false : true,
+      view: window.innerWidth <= 768 ? 'mobile' : 'desktop',
+      mailSent: false,
+      error: null
     }
   }
-  
+  handleFormSubmit = (data) => {
+    const { mailSent, error } = this.state
+    const { fname, email, message } = data
+    const dataToSend = {
+      fname,
+      email,
+      message,
+      mailSent,
+      error
+    }
+    axios({
+      method: 'post',
+      url: `${API_PATH}`,
+      headers: { 'content-type': 'application/json' },
+      data: dataToSend
+    })
+      .then(result => {
+        this.setState({
+          mailSent: result.data.sent
+        })
+
+      })
+      .catch(error => this.setState({ error: error.message }));
+  };
   changePage = (page) => {
     this.setState({
       activePage: page
     })
   }
   openLeftSideBar = () => {
-    const { leftSideBarOpen } = this.state
-    this.setState({leftSideBarOpen: !leftSideBarOpen})
+    const { leftSideBarOpen, width } = this.state
+    this.setState({
+      rightSideBarOpen: width <= 768 ? false : true,
+      leftSideBarOpen: !leftSideBarOpen
+    })
   }
   openRightSideBar = () => {
-    const { rightSideBarOpen } = this.state
-    this.setState({rightSideBarOpen: !rightSideBarOpen})
+    const { rightSideBarOpen, width } = this.state
+    this.setState({
+      leftSideBarOpen: width <= 768 ? false : true,
+      rightSideBarOpen: !rightSideBarOpen
+    })
   }
   loadingComplete = () => {
     this.setState({
@@ -40,7 +74,14 @@ class App extends Component {
     })
   }
   updateDimensions = () => {
-    this.setState({ width: window.innerWidth, height: window.innerHeight, loading: true });
+    this.setState({ 
+      width: window.innerWidth, 
+      height: window.innerHeight, 
+      loading: true,
+      rightSideBarOpen: false,
+      leftSideBarOpen: window.innerWidth <= 768 ? false : true,
+      view: window.innerWidth <= 768 ? 'mobile' : 'desktop',
+    });
   };
   componentDidMount() {
     window.addEventListener('resize', this.updateDimensions);
@@ -60,7 +101,7 @@ class App extends Component {
       : 
       <div className={`App`} id={view}>
         <SidebarLeft width={width} activePage={activePage} leftSideBarOpen={leftSideBarOpen} openLeftSideBar={this.openLeftSideBar} />
-        <Container width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} />
+        <Container width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} handleFormSubmit={this.handleFormSubmit} changePage={this.changePage} />
         <SidebarRight width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} changePage={this.changePage} openRightSideBar={this.openRightSideBar} />
       </div>
   );

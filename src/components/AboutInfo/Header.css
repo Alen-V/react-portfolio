@@ -66,6 +66,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .left-sidebar-container .profile-info-header .initials-container {
@@ -240,7 +241,11 @@
 }
 
 #mobile .right-sidebar-container {
-  right: -100%;
+  right: -80px;
+}
+
+#mobile .right-sidebar-container.open {
+  right: 0px;
 }
 
 .right-sidebar-container.open {
@@ -315,7 +320,7 @@
 
 .right-sidebar-container .active-item {
   position: absolute;
-  top: 100px;
+  top: 127px;
   left: 17px;
   transform: rotateZ(90deg);
   opacity: 0;
@@ -326,12 +331,16 @@
 }
 
 .right-sidebar-container .active-item.projects {
-  top: 113px;
+  top: 140px;
   left: 4px;
 }
 
+.right-sidebar-container .active-item.about {
+  left: 14px;
+}
+
 .right-sidebar-container .active-item.contact {
-  top: 113px;
+  top: 140px;
   left: 5px;
 }
 
@@ -381,13 +390,14 @@
   height: 70px;
   display: flex;
   position: relative;
+  left: 0px;
   z-index: 2;
   padding: 26px 30px;
   cursor: pointer;
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+  -webkit-transition: .55s ease-in-out;
+  -moz-transition: .55s ease-in-out;
+  -o-transition: .55s ease-in-out;
+  transition: .55s ease-in-out;
 }
 
 .burger-container:hover #burgerButton span {

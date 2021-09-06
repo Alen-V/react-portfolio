@@ -24,11 +24,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-#home {
-    transition: .55s ease-in-out;
-    opacity: 0;
-}
-
 .page {
     position: absolute;
     top: 0%;
@@ -37,6 +32,8 @@ input[type=number] {
     padding: 30px;
     overflow: auto;
     height: 100%;
+    transition: .55s ease-in-out;
+    opacity: 0;
 }
 
 .page.inactive {
@@ -60,6 +57,9 @@ input[type=number] {
 }
 .main-page.open {
     transform: translateX(-150px);
+}
+#mobile .main-page.open {
+    transform: translateX(-230px);
 }
 
 .main-page .page-container {
@@ -228,7 +228,6 @@ input[type=number] {
 }
 
 .project-contact-info {
-    height: 280px;
     width: 100%;
     background-color: #23232E;
     margin-top: 30px;
@@ -237,6 +236,7 @@ input[type=number] {
     align-items: center;
     flex-direction: column;
     letter-spacing: 1.1px;
+    padding: 30px 15px 45px;
 }
 
 .project-contact-info .project-idea {
@@ -250,7 +250,6 @@ input[type=number] {
 }
 
 .project-contact-info .project-idea > div:first-child {
-    padding-top: 30px;
     padding-bottom: 10px;
     border-bottom: 2px solid #404047;
 }
@@ -319,12 +318,14 @@ input[type=number] {
 .cards-container {
     display: flex;
     justify-content: space-between;
-    margin-right: 15px;
     flex-wrap: wrap;
 }
 
 .about-container .about-pitch {
     padding: 15px;
+    background-color: #23232E;
+    box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
+    margin-top: 15px;
 }
 
 .cards-container .about-item {
@@ -346,6 +347,7 @@ input[type=number] {
     background-color: #23232E;
     box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
     min-width: 320px;
+    width: calc(50% - 15px);
 }
 
 .contact-info-container .description-container .contact-info-item > div {
@@ -456,13 +458,17 @@ input[type=number] {
 }
 
 #mobile .page {
-    padding: 15px;
+    padding: 30px;
     padding-top: 85px;
+}
+
+#mobile #home {
+    padding-top: 100px;
 }
 
 #mobile .info-container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 #mobile .mobile-header {
@@ -473,4 +479,5 @@ input[type=number] {
     position: fixed;
     left: 0%;
     top: 0%;
+    z-index: 2;
 }
