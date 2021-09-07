@@ -37,13 +37,13 @@ input[type=number] {
 }
 
 .page.inactive {
-    transition-delay: .0s!important;
+    transition-delay: .55s!important;
     z-index: 0;
     opacity: 0;
 }
 
 .page.active {
-    transition-delay: .55s!important;
+    transition-delay: 1.1s!important;
     opacity: 1!important;
     z-index: 2;
 }
@@ -91,7 +91,7 @@ input[type=number] {
     padding-bottom: 15px;
     text-transform: capitalize;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 1.1px;
 }
 
@@ -108,6 +108,23 @@ input[type=number] {
 
 .main-page .page-container .description-item {
     padding: 10px 15px;
+}
+
+.main-page .work-experience .description-item {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.main-page .work-experience .description-item .timeline, .main-page .education-container .description-item .timeline {
+    font-size: 14px;
+    color: #8c8c8e;
+    font-weight: 500;
+}
+
+.main-page .education-container .description-item .timeline.courses {
+    font-size: 16px;
+    color: #f1f1f1;
+    font-weight: 400;
 }
 
 .refferences-container .timeline > div {
@@ -385,6 +402,20 @@ input[type=number] {
     box-shadow: inset 0 1px 4px 0 rgb(15 15 20 / 10%);
     transition: .4s ease-in-out;
     color: #8c8c8e;
+    position: relative;
+}
+
+.error-message {
+    position: absolute;
+    padding: 15px;
+    left: 50px;
+    background-color: white;
+    top: 0;
+    height: 100%;
+    width: calc(100% - 50px);
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .contact-form .contact-form-container > div .icon-container {

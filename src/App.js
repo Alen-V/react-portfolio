@@ -45,7 +45,7 @@ class App extends Component {
         this.setState({
           mailSent: result.data.sent
         })
-
+        alert('Message sent!')
       })
       .catch(error => this.setState({ error: error.message }));
   };
@@ -100,7 +100,7 @@ class App extends Component {
       </div>
       : 
       <div className={`App`} id={view}>
-        <SidebarLeft width={width} activePage={activePage} leftSideBarOpen={leftSideBarOpen} openLeftSideBar={this.openLeftSideBar} />
+        <SidebarLeft width={width} activePage={activePage} leftSideBarOpen={leftSideBarOpen} openLeftSideBar={this.openLeftSideBar} changePage={this.changePage} />
         <Container width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} handleFormSubmit={this.handleFormSubmit} changePage={this.changePage} />
         <SidebarRight width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} changePage={this.changePage} openRightSideBar={this.openRightSideBar} />
       </div>

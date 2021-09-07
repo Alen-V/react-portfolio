@@ -13,22 +13,28 @@ const SidebarLeft = ({ width, activePage, changePage, openLeftSideBar, leftSideB
         }
         return age;
     }
-    const moreInformation = [['residence:', 'macedonia'], ['city:', 'skopje'], ['age:', getAge('8/4/98')]]
+    const moreInformation = [['residence:', 'macedonia'], ['city:', 'skopje'], ['age:', getAge('8/4/98')], ['email', <a href="mailto: alenvatic7@gmail.com">alenvatic7@gmail.com</a>]]
     const codingLanguages = [['JavaScript', '90 %'], ['Angular', '75 %'], ['ReactJS', '80 %'], ['TypeScript', '70 %'], ['HTML', '90 %'], ['CSS', '85 %'], ['node.js', '60 %']]
     const contactInfoItems = [['https://www.linkedin.com/in/alen-vatic-a0b61815b/', 'linkedin'], ['https://github.com/Alen-V', 'github'], ['https://gitlab.com/alenvatic7', 'gitlab'], ['mailto: alenvatic7@gmail.com', 'fas fa-envelope-open']]
-    
+    const changePg = (page) => {
+        if (width < 768 ) {
+            openLeftSideBar()
+        }
+        if ( changePage ) {
+            changePage(page)
+        }
+    }
     const profileInfoHeader = (
         <div className={'profile-info-header'}>
             <div className="open-sidebar" onClick={() => openLeftSideBar()}>
                 {<i className="fas fa-ellipsis-v"></i>}
             </div>
             <div className={'initials-container'}><span>AV</span></div>
-            <div className={'name-container'}>
+            <div className={'name-container'} onClick={() => changePg(3)}>
                 <span>Alen Vatic</span>
             </div>
             <div className={'job-description'}>
                 <span>Full Stack Developer</span>
-                <span>F/E Heavy</span>
             </div>
         </div>
     )

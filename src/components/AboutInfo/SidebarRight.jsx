@@ -17,9 +17,9 @@ const SidebarRight = ({ width, activePage, changePage, rightSideBarOpen, openRig
     )
     const changeActivePage = (pageIndex) => {
         openRightSideBar()
-        document.querySelector('.main-page').addEventListener('transitionend', () => {
+        if ( changePage ) {
             changePage(pageIndex)
-        })
+        }
     }
     const activeItem = navItems.map(((item, index) => {
         let items = <div key={item+index} className={"active-item " + item}>

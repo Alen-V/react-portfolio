@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Container.css'
 import { projects } from '../../projects/projects'
+import { getThemeProps } from '@material-ui/styles'
 
 const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit, changePage}) => {
     const shortDescription = ( 
@@ -48,7 +49,7 @@ const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit,
                         <span>From: 10/2019 - 10/2020</span>
                     </div>
                     <div>
-                        <div className="timeline">Coursework - Html, CSS, JavaScript, C#, MySQL, Angular 2+</div>
+                        <div className="timeline courses">Coursework - Html, CSS, JavaScript, C#, MySQL, Angular 2+</div>
                         <a href="https://www.sedc.mk/" target={'_blank'} rel={'noreferrer'}>sedc.mk</a>
                     </div>
                 </div>
@@ -68,7 +69,7 @@ const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit,
         <div className={'refferences-container'}>
             <div className={'description'}>
                 <span>
-                    Refferences
+                    References
                 </span>
             </div>
             <div className={'description-container'}>
@@ -123,7 +124,7 @@ const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit,
                                     {project.name}
                                 </div>
                                 <div className={'project-button'}>
-                                    <span onClick={() => {openProject(project.url)}}>View Project</span>   
+                                    <span onClick={() => openProject(project.url)}>View Project</span>   
                                 </div>                                
                             </span>
                         </div>
@@ -132,6 +133,11 @@ const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit,
             </div>
         </div>
     )
+    const goContact = (page) => {
+        if ( changePage ) {
+            changePage(page)
+        }
+    }
 
     const projectContact = (
         <div className={'project-contact-info'}>
@@ -143,7 +149,7 @@ const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit,
                     <span>Let's work together</span>
                 </div>
             </div>
-            <div className="contact-me" onClick={() => {changePage(3)}}>
+            <div className="contact-me" onClick={() => goContact(3)}>
                 <span>contact me</span>
             </div>
         </div>
@@ -235,6 +241,73 @@ const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit,
     const [fname, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const [nameError, setNameError] = useState(false)
+    const [emailError, setEmailError] = useState(false)
+    const [messageError, setMessageError] = useState(false)
+    const validateName = (name) => {
+        if (name.length < 3 ) {
+            return false
+        }
+        return true
+    }
+    const validateEmail = (email) => {
+        const value = email;
+        const regex = /\S+@\S+\.\S+/;
+        if(!regex.test(value)){
+            return false;
+          } else {
+            return true;
+          }
+    }
+    const validateMessage = (message) => {
+        if (message.length < 1 ) {
+            return false
+        }
+        return true
+    }
+    const handleForm = (data) => {
+        const name = validateName(data.fname)
+        const email = validateEmail(data.email)
+        const message = validateMessage(data.message)
+        if ( !name ) {
+            setNameError(true)
+            return
+        }
+        if ( !email ) {
+            setEmailError(true)
+            return
+        }
+        if( !message ) {
+            setMessageError(true)
+            return
+        }
+        if ( handleFormSubmit ) {
+            handleFormSubmit(data)
+        }
+        clearForm()
+    }
+    const clearForm = () => {
+        setName('')
+        setEmail('')
+        setMessage('')
+    }
+    const acceptMessage = (type) => {
+        if ( type === 'name' ) {
+            setNameError(false)
+        }
+        if ( type === 'email' ) {
+            setEmailError(false)
+        }
+        if ( type === 'message' ) {
+            setMessageError(false)
+        }
+    }
+    const errorMessage = ( type ) => {
+        let message = (
+            <div className={'error-message'} onClick={() => acceptMessage(type)}>Please enter a valid {type}.</div>
+        )
+        return message
+    }
     
     const contactForm = (
         <div className="contact-form">
@@ -248,21 +321,24 @@ const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit,
                     <div className="icon-container">
                         {<i className="fas fa-user"></i>}
                     </div>
-                        <input onFocus={() => {focusEl('name')}} onChange={(e) => {setName(e.target.value)}} className={'input'} type="text" placeholder={'Name'} />
+                        {nameError ? errorMessage('name') : null}
+                        <input onFocus={() => {focusEl('name')}} onChange={(e) => setName(e.target.value)} className={'input'} type="text" placeholder={'Name'} value={fname} />
                 </div>
                 <div className={`email-input ${focus}`}>
                     <div className="icon-container">
                         {<i className="fas fa-at"></i>}
                     </div>
-                        <input onFocus={() => {focusEl('email')}} onChange={(e) => {setEmail(e.target.value)}} className={'input'} type="text" placeholder={'Email'} />
+                        {emailError ? errorMessage('email') : null}
+                        <input onFocus={() => {focusEl('email')}} onChange={(e) => setEmail(e.target.value)} className={'input'} type="text" placeholder={'Email'} value={email} />
                 </div>
                 <div className={`message-input ${focus}`}>
                     <div className="icon-container">
                         {<i className="fas fa-envelope-open-text"></i>}
                     </div>
-                        <textarea onFocus={() => {focusEl('textarea')}} onChange={(e) => {setMessage(e.target.value)}} className={'input'} type="text" placeholder={'Message'} />
+                        {messageError ? errorMessage('message') : null}
+                        <textarea onFocus={() => {focusEl('textarea')}} onChange={(e) => setMessage(e.target.value)} className={'input'} type="text" placeholder={'Message'} value={message} />
                 </div>
-                <div className="send-message" onClick={() => handleFormSubmit({fname, email, message})} >
+                <div className="send-message" onClick={() => handleForm({fname, email, message})} >
                     <span>send message</span>
                 </div>
             </div>

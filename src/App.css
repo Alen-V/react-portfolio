@@ -111,15 +111,24 @@ a {
     min-width: unset;
     height: 210px;
   }
+  .App .projects-container .project-item .project-animate:hover .project-description {
+    top: 32%;
+  }
 }
 
 @media only screen and (max-width: 1200px) { 
   .App .projects-container .project-item {
     height: 165px;
   }
+  .App .projects-container .project-item .project-animate:hover .project-description {
+    top: 15%;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
+  .App .projects-container .project-item .project-animate:hover .project-description {
+    top: 32%;
+  }
   body {
     padding: 0%;
   }
@@ -146,6 +155,9 @@ a {
 }
 
 @media only screen and (max-width: 768px) {
+  .App .projects-container .project-item .project-animate:hover .project-description {
+    top: 30%;
+  }
   .App .cards-container .about-item {
     max-width: unset;
     min-width: 320px;
@@ -156,13 +168,16 @@ a {
 }
 
 @media only screen and (max-width: 540px) {
+  .App .projects-container .project-item .project-animate:hover .project-description {
+    top: 20%;
+  }
   .App .main-page .page-container .info-container {
     font-size: 2em;
     height: unset;
     padding: 30px 30px 40px;
   }
   .App .about-container .about-pitch , .App .cards-container .about-item {
-    max-width: 320px;
+    width: 100%;
   }
   .App .projects-container .projects {
     justify-content: space-between;
@@ -174,6 +189,9 @@ a {
 }
 
 @media only screen and (max-width: 480px) {
+  .App .projects-container .project-item .project-animate:hover .project-description {
+    top: 40%;
+  }
   .App .contact-info-container .description-container .contact-info-item {
     min-width: unset;
     width: 100%;
@@ -186,9 +204,8 @@ a {
     justify-content: center;
   }
   .App .projects-container .project-item {
-    height: 240px;
+    height: 240px!important;
     width: 100%!important;
-    max-width: 320px;
   }
   .page {
     overflow-x: hidden!important;
