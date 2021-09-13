@@ -8,7 +8,7 @@ export const projects = [
     {
         "id": 1,
         "name": "digital crafters",
-        "url": "https://alen-v.github.io/digital-crafters/myProject/",
+        "url": "https://alen-v.github.io/digital-crafters/",
         "image": "digital_crafters"
     },
     {

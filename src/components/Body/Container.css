@@ -173,9 +173,8 @@ input[type=number] {
 .projects-container .project-item {
     min-width: 270px;
     height: 240px;
-    width: 315px;
     background-color: #23232E;
-    margin-top: 30px;
+    margin-top: 17px;
     box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -347,11 +346,11 @@ input[type=number] {
 
 .cards-container .about-item {
     min-width: 320px;
-    max-width: 320px;
     padding: 30px;
     background-color: #23232E;
     box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
     margin-top: 15px;
+    width: calc(100% / 2 - 10px);
 }
 
 .contact-info-container .description-container {

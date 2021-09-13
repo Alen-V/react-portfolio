@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-import cv from '../../assets/alen_vatic.pdf'
+import cv from '../../assets/alenvatic.pdf'
 
 const SidebarLeft = ({ width, activePage, changePage, openLeftSideBar, leftSideBarOpen}) => {
     const getAge = (dateString) => {
@@ -17,9 +17,6 @@ const SidebarLeft = ({ width, activePage, changePage, openLeftSideBar, leftSideB
     const codingLanguages = [['JavaScript', '90 %'], ['Angular', '75 %'], ['ReactJS', '80 %'], ['TypeScript', '70 %'], ['HTML', '90 %'], ['CSS', '85 %'], ['node.js', '60 %']]
     const contactInfoItems = [['https://www.linkedin.com/in/alen-vatic-a0b61815b/', 'linkedin'], ['https://github.com/Alen-V', 'github'], ['https://gitlab.com/alenvatic7', 'gitlab'], ['mailto: alenvatic7@gmail.com', 'fas fa-envelope-open']]
     const changePg = (page) => {
-        if (width < 768 ) {
-            openLeftSideBar()
-        }
         if ( changePage ) {
             changePage(page)
         }

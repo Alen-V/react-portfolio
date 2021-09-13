@@ -50,8 +50,11 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }));
   };
   changePage = (page) => {
+    const { leftSideBarOpen, rightSideBarOpen, width } = this.state
     this.setState({
-      activePage: page
+      activePage: page,
+      leftSideBarOpen: leftSideBarOpen && width <= 768 ? !leftSideBarOpen : leftSideBarOpen,
+      rightSideBarOpen: rightSideBarOpen ? !rightSideBarOpen : rightSideBarOpen
     })
   }
   openLeftSideBar = () => {
