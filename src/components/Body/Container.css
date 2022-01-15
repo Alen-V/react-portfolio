@@ -172,6 +172,7 @@ input[type=number] {
 
 .projects-container .project-item {
     min-width: 270px;
+    width: calc((100% / 3) - 10px);
     height: 240px;
     background-color: #23232E;
     margin-top: 17px;
@@ -268,25 +269,6 @@ input[type=number] {
 .project-contact-info .project-idea > div:first-child {
     padding-bottom: 10px;
     border-bottom: 2px solid #404047;
-}
-
-.project-contact-info .contact-me {
-    margin-top: 30px;
-    padding: 15px 40px;
-    background-color: #FFC107;
-    color: #20202a;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 12px;
-    cursor: pointer;
-    box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
-    position: relative;
-    top: 0;
-    transition: .15s ease-in-out;
-}
-
-.project-contact-info .contact-me:hover {
-    top: -2px;
 }
 
 .info-container span {

@@ -99,6 +99,25 @@ a {
   user-select: none;
 }
 
+.contact-me {
+  margin-top: 30px;
+  padding: 15px 40px;
+  background-color: #FFC107;
+  color: #20202a;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
+  position: relative;
+  top: 0;
+  transition: .15s ease-in-out;
+}
+
+.contact-me:hover {
+  top: -2px;
+}
+
 @media only screen and (max-width: 1550px) { 
   body {
     padding: 15px;

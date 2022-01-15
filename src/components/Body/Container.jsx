@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import './Container.css'
 import { projects } from '../../projects/projects'
-import { getThemeProps } from '@material-ui/styles'
 
-const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit, changePage}) => {
+const Container = ({activePage, rightSideBarOpen, handleFormSubmit, changePage}) => {
     const shortDescription = ( 
         <div className="info-container">
             <span>
@@ -17,21 +16,12 @@ const Container = ({width, activePage, rightSideBarOpen, view, handleFormSubmit,
             <div className={'description'}><span>work experience</span></div>
             <div className={'description-container'}>
                 <div className={'description-item'}>
-                    Freelance
-                    <div className={'timeline'}>
-                        <span>From: 05/2019 - current</span>
-                    </div>
-                    {/* <div>
-                        <span>Front End oriented</span>
-                    </div> */}
-                </div>
-                <div className={'description-item'}>
                     Keep IT Simple
                     <div className={'timeline'}>
                         <span>From: 08/2020 - current</span>
                     </div>
                     {/* <div>
-                        <span>Front End oriented</span>
+                        <span>Front End developer</span>
                     </div> */}
                 </div>
             </div>

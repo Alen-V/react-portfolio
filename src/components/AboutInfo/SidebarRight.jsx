@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import './Header.css'
 
-const SidebarRight = ({ width, activePage, changePage, rightSideBarOpen, openRightSideBar}) => {
+const SidebarRight = ({activePage, changePage, rightSideBarOpen, openRightSideBar}) => {
     let navItems = ['home', 'projects', 'about', 'contact']
     const burgerButton = (
         <div className={'burger-container'} onClick={() => openRightSideBar()}>

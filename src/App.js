@@ -22,7 +22,9 @@ class App extends Component {
       leftSideBarOpen: window.innerWidth <= 768 ? false : true,
       view: window.innerWidth <= 768 ? 'mobile' : 'desktop',
       mailSent: false,
-      error: null
+      error: null,
+      questions: [],
+      answers: []
     }
   }
   handleFormSubmit = (data) => {
@@ -103,9 +105,9 @@ class App extends Component {
       </div>
       : 
       <div className={`App`} id={view}>
-        <SidebarLeft width={width} activePage={activePage} leftSideBarOpen={leftSideBarOpen} openLeftSideBar={this.openLeftSideBar} changePage={this.changePage} />
-        <Container width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} handleFormSubmit={this.handleFormSubmit} changePage={this.changePage} />
-        <SidebarRight width={width} activePage={activePage} rightSideBarOpen={rightSideBarOpen} changePage={this.changePage} openRightSideBar={this.openRightSideBar} />
+        <SidebarLeft leftSideBarOpen={leftSideBarOpen} openLeftSideBar={this.openLeftSideBar} changePage={this.changePage} />
+        <Container activePage={activePage} rightSideBarOpen={rightSideBarOpen} handleFormSubmit={this.handleFormSubmit} changePage={this.changePage} />
+        <SidebarRight activePage={activePage} rightSideBarOpen={rightSideBarOpen} changePage={this.changePage} openRightSideBar={this.openRightSideBar} />
       </div>
   );
  }
