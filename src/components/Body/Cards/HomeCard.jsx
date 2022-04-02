@@ -1,4 +1,32 @@
-import React, { useState } from "react";
+import EducationItem from "./EducationItem";
+import ReferenceItem from "./ReferenceItem";
+
+const Education = [
+    {
+        academy: 'Seavus Education and Development Center',
+        duration: 'From: 10/2019 - 10/2020',
+        coursework: 'Html, CSS, JavaScript, C#, MySQL, Angular 2+',
+        link: 'sedc.mk'
+    },
+    {
+        academy: 'Web development courses',
+        duration: 'From: 07/2017 - 08/2018',
+        coursework: 'Html, CSS, JavaScript, Git, ReactJS',
+        link: ''
+    }
+]
+const Refer = [
+    {
+        name: 'Dragan Gelevski',
+        company: 'WSAudiology',
+        linkId: 'dragan-gelevski'
+    },
+    {
+        name: 'Shqipdon Selmani',
+        company: 'Slice',
+        linkId: 'shqipdonselmani'
+    }
+]
 
 const HomeCard = () => {
     const shortDescription = ( 
@@ -18,41 +46,24 @@ const HomeCard = () => {
                     <div className={'timeline'}>
                         <span>From: 08/2020 - current</span>
                     </div>
-                    {/* <div>
-                        <span>Front End developer</span>
-                    </div> */}
                 </div>
             </div>
         </div>
     )
+
     const educationContainer = (
         <div className={'education-container border-bottom'}>
             <div className={'description'}>
                 <span>Education</span>
             </div>
             <div className={'description-container'}>
-                <div className="description-item">
-                    Seavus Education and Development Center
-                    <div className="timeline">
-                        <span>From: 10/2019 - 10/2020</span>
-                    </div>
-                    <div>
-                        <div className="timeline courses">Coursework - Html, CSS, JavaScript, C#, MySQL, Angular 2+</div>
-                        <a href="https://www.sedc.mk/" target={'_blank'} rel={'noreferrer'}>sedc.mk</a>
-                    </div>
-                </div>
-                <div className="description-item">
-                    Web development courses
-                    <div className="timeline">
-                        <span>From: 07/2017 - 08/2018</span>
-                    </div>
-                    <div>
-                        <span>Coursework - Html, CSS, JavaScript, Git, ReactJS</span>
-                    </div>
-                </div>
+                {Education.map((edItem, index) => (
+                    <EducationItem key={edItem.academy+index} academy={edItem.academy} duration={edItem.duration} coursework={edItem.coursework} link={edItem.link} />
+                ))}
             </div>
         </div>
     )
+    
     const refferences = (
         <div className={'refferences-container'}>
             <div className={'description'}>
@@ -61,40 +72,9 @@ const HomeCard = () => {
                 </span>
             </div>
             <div className={'description-container'}>
-                <div className="description-item">
-                    Dragan Gelevski from WSAudiology
-                    <div className="timeline">
-                        <div>
-                            <span>
-                                Email:
-                                <a href="mailto: gdragan6@gmail.com"> gdragan6@gmail.com</a>
-                            </span>
-                        </div>
-                        <div>
-                            <span>
-                                LinkedIn:
-                                <a href="https://www.linkedin.com/in/dragan-gelevski" target="_blank" rel="noreferrer"> linkedin.com/in/dragan-gelevski</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className="description-item">
-                Shqipdon Selmani from Slice 
-                    <div className="timeline">
-                        <div>
-                            <span>
-                                Email:
-                                <a href="mailto: selmani.sq@gmail.com"> selmani.sq@gmail.com</a>
-                            </span>
-                        </div>
-                        <div>
-                            <span>
-                                LinkedIn:
-                                <a href="https://www.linkedin.com/in/shqipdonselmani" target="_blank" rel="noreferrer"> linkedin.com/in/shqipdonselmani</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                {Refer.map((referee, index) => (
+                    <ReferenceItem key={referee.linkId+index} name={referee.name} company={referee.company} linkId={referee.linkId} />
+                ))}
             </div>
         </div>
     )

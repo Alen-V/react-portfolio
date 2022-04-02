@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 function LinearProgressWithLabel(props) {
     if( props.value === 100 ) {
         setTimeout(() => {
-            props.loadingComplete()
+          props.loadingComplete()
         }, 800);
     }
   return (
@@ -44,7 +44,7 @@ export default function LinearWithValueLabel({loadingComplete}) {
     const [progress, setProgress] = React.useState(0);
   
     React.useEffect(() => {
-      const timer = setInterval(() => {
+      setInterval(() => {
         setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 2));
       }, 35);
     }, []);

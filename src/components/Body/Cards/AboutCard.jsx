@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 const AboutCard = () => {
     const aboutCards = (
         <div className={'cards-container'}>

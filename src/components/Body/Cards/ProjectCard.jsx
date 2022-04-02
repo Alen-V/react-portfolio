@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { projects } from '../../../projects/projects'
 
 const ProjectCard = ({changePage}) => {

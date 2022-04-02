@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import './Container.css'
 import ContactCard from './Cards/ContactCard'
 import AboutCard from './Cards/AboutCard'
@@ -23,7 +22,7 @@ const Container = ({activePage, rightSideBarOpen, handleFormSubmit, changePage})
     return <div className={`main-page ${rightSideBarOpen ? 'open' : 'closed'}`}>
         <div className={'page-container'}>
                 {Cards.map((card, index) => (
-                    <div id={card.page} className={`page ${activePage === index ? 'active' : 'inactive'}`}>
+                    <div key={card.page+index} id={card.page} className={`page ${activePage === index ? 'active' : 'inactive'}`}>
                         <div className="mobile-header"></div>
                         {card.component}
                     </div>
