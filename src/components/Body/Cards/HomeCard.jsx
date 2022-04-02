@@ -98,7 +98,12 @@ const HomeCard = () => {
             </div>
         </div>
     )
-    return null
+    return <>
+        {shortDescription}
+        {workExperience}
+        {educationContainer}
+        {refferences}
+    </>
 }
 
 export default HomeCard

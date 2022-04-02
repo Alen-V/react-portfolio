@@ -2,7 +2,7 @@ export const projects = [
     {
         "id": 5,
         "name": "betting-site",
-        "url": "https://www.vierklee-wetten.com/",
+        "url": "https://maltastar.net/",
         "image": "betting-site"
     },
     {

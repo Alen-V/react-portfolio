@@ -20,16 +20,16 @@ const Container = ({activePage, rightSideBarOpen, handleFormSubmit, changePage})
             component: <ContactCard handleFormSubmit={handleFormSubmit} />
         }
     ]
-    return Cards.map((card, index) => (
-        <div className={`main-page ${rightSideBarOpen ? 'open' : 'closed'}`}>
-            <div className={'page-container'}>
-                <div id={card.page} className={`page ${activePage === index ? 'active' : 'inactive'}`}>
-                    <div className="mobile-header"></div>
-                    {card.component}
-                </div>
+    return <div className={`main-page ${rightSideBarOpen ? 'open' : 'closed'}`}>
+        <div className={'page-container'}>
+                {Cards.map((card, index) => (
+                    <div id={card.page} className={`page ${activePage === index ? 'active' : 'inactive'}`}>
+                        <div className="mobile-header"></div>
+                        {card.component}
+                    </div>
+                ))}
             </div>
         </div>
-    ))
 }
 
 export default Container

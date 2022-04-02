@@ -24,7 +24,8 @@ class App extends Component {
       mailSent: false,
       error: null,
       questions: [],
-      answers: []
+      answers: [],
+      colorMode: 'dark'
     }
   }
   handleFormSubmit = (data) => {
