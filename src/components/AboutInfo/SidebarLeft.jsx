@@ -1,4 +1,3 @@
-import React from 'react'
 import './Header.css'
 import cvDocx from '../../assets/cv/ResumeAlenF.docx'
 import cvPDF from '../../assets/cv/ResumeAlenP.pdf'
