@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      loading: false,
       name: 'alen vatic',
       percentage: 0,
       width: window.innerWidth,
@@ -95,7 +95,7 @@ class App extends Component {
     window.removeEventListener('resize', this.updateDimensions);
   }
   render() {
-    const { loading, width, activePage, rightSideBarOpen, name, view, leftSideBarOpen } = this.state
+    const { loading, width, activePage, rightSideBarOpen, name, view, leftSideBarOpen } = this.state;
     return (
       loading ? <div className={'loading-animation'}>
         <div className={'loader-container'}>
