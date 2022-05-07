@@ -302,8 +302,8 @@ input[type=number] {
     background-position: center;
     background-color: white;
 }
-.projects-container .project-item.betting-site{
-    background-image: url('../../assets/images/betting-site.png');
+.projects-container .project-item.segel_demo{
+    background-image: url('../../assets/images/segel_demo.png');
     background-position: center;
     background-size: contain;
 }
