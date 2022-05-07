@@ -1,7 +1,7 @@
 import './Header.css'
+import { navItems } from '../../assets/Sidebar'
 
 const SidebarRight = ({activePage, changePage, rightSideBarOpen, openRightSideBar}) => {
-    let navItems = ['home', 'projects', 'about', 'contact']
     const burgerButton = (
         <div className={'burger-container'} onClick={() => openRightSideBar()}>
             <div id="burgerButton">

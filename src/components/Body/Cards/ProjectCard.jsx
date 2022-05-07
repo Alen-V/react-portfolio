@@ -1,4 +1,5 @@
-import { projects } from '../../../projects/projects'
+import { projects } from '../../../assets/projects/projects'
+import { Link } from "react-router-dom";
 
 const ProjectCard = ({changePage}) => {
     const openProject = (url) => {
@@ -24,9 +25,13 @@ const ProjectCard = ({changePage}) => {
                                 <div className={'project-name'}>
                                     {project.name}
                                 </div>
-                                <div className={'project-button'}>
-                                    <span onClick={() => openProject(project.url)}>View Project</span>   
-                                </div>                                
+                                {project.isDomain ?
+                                    <Link className='project-button' to={`/${project.url}/`}>View Project</Link>
+                                    :
+                                    <div onClick={() => openProject(project.url)} className={'project-button'}>
+                                        <span>View Project</span>   
+                                    </div>  
+                                }
                             </span>
                         </div>
                     </div>
