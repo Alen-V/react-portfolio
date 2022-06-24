@@ -1,6 +1,4 @@
 import './Header.css'
-import cvDocx from '../../assets/cv/ResumeAlenF.docx'
-import cvPDF from '../../assets/cv/ResumeAlenP.pdf'
 import { moreInformation, contactInfoItems } from '../../assets/Sidebar'
 
 const SidebarLeft = ({changePage, openLeftSideBar, leftSideBarOpen}) => {
@@ -46,10 +44,10 @@ const SidebarLeft = ({changePage, openLeftSideBar, leftSideBarOpen}) => {
                         {profileMoreInformation}
                     </div>
                     <div className={'download-cv-container docx'}>
-                        <a href={cvDocx} download>download cv (docx)</a>
+                        <a href={process.env.PUBLIC_URL+"/cv/ResumeAlenF.docx"} download>download cv (docx)</a>
                     </div>
                     <div className={'download-cv-container'}>
-                        <a href={cvPDF} download>download cv (pdf)</a>
+                        <a href={process.env.PUBLIC_URL+"/cv/ResumeAlenP.pdf"} download>download cv (pdf)</a>
                     </div>
                 </div>
                 <div className={'profile-footer'}>
