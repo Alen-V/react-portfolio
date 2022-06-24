@@ -1,2 +1,3 @@
-RewriteCond %{HTTP_HOST} ^alenvatic.com$ [NC]
-RewriteRule (.*) http://www.alenvatic.com/$1 [R=301,L] 
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^alenvatic\.com$ [NC]
+RewriteRule ^(.*)$ http://www.alenvatic.com/$1 [R=301,L]
