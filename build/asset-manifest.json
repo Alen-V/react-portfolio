@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4cbaade2.chunk.css",
+    "main.js": "/static/js/main.fe9fce1a.chunk.js",
+    "main.js.map": "/static/js/main.fe9fce1a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4451a149.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4451a149.js.map",
+    "static/js/2.78be3dcd.chunk.js": "/static/js/2.78be3dcd.chunk.js",
+    "static/js/2.78be3dcd.chunk.js.map": "/static/js/2.78be3dcd.chunk.js.map",
+    "static/js/3.fd167769.chunk.js": "/static/js/3.fd167769.chunk.js",
+    "static/js/3.fd167769.chunk.js.map": "/static/js/3.fd167769.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.4cbaade2.chunk.css.map": "/static/css/main.4cbaade2.chunk.css.map",
+    "static/js/2.78be3dcd.chunk.js.LICENSE.txt": "/static/js/2.78be3dcd.chunk.js.LICENSE.txt",
+    "static/media/ResumeAlenF.045ab0bd.docx": "/static/media/ResumeAlenF.045ab0bd.docx",
+    "static/media/ResumeAlenP.f09e26e5.pdf": "/static/media/ResumeAlenP.f09e26e5.pdf",
+    "static/media/Container.css": "/static/media/weather-app-react.78f6ee16.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4451a149.js",
+    "static/js/2.78be3dcd.chunk.js",
+    "static/css/main.4cbaade2.chunk.css",
+    "static/js/main.fe9fce1a.chunk.js"
+  ]
+}
