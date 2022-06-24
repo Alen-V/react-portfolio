@@ -43,12 +43,12 @@ const SidebarLeft = ({changePage, openLeftSideBar, leftSideBarOpen}) => {
                     <div className={'more-information'}>
                         {profileMoreInformation}
                     </div>
-                    <div className={'download-cv-container docx'}>
+                    {/* <div className={'download-cv-container docx'}>
                         <a href={process.env.PUBLIC_URL+"/cv/ResumeAlenF.docx"} download>download cv (docx)</a>
                     </div>
                     <div className={'download-cv-container'}>
                         <a href={process.env.PUBLIC_URL+"/cv/ResumeAlenP.pdf"} download>download cv (pdf)</a>
-                    </div>
+                    </div> */}
                 </div>
                 <div className={'profile-footer'}>
                     {footerInfo}
