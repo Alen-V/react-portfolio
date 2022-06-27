@@ -8,13 +8,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import SegelDemo from './routes/segeldemo/SegelDemo'
+// import SegelDemo from './routes/segeldemo/SegelDemo'
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/segeldemo" element={<SegelDemo />} />
+      {/* <Route path="/segeldemo" element={<SegelDemo />} /> */}
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')

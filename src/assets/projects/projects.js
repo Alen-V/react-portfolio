@@ -2,9 +2,8 @@ export const projects = [
     {
         "id": 5,
         "name": "segel demo",
-        "url": "segeldemo",
-        "image": "segel_demo",
-        "isDomain": 1
+        "url": "https://alen-v.github.io/segeldemo/",
+        "image": "segel_demo"
     },
     {
         "id": 1,
